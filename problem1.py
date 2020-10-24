@@ -1,3 +1,6 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+
 import numpy as np
 
 # Note: please don't import any new package. You should solve this problem using only the package(s) above.
@@ -22,7 +25,7 @@ def Terms_and_Conditions():
     '''
     #*******************************************
     # CHANGE HERE: if you have read and agree with the term above, change "False" to "True".
-    Read_and_Agree = False
+    Read_and_Agree = True
     #*******************************************
     return Read_and_Agree
 
@@ -41,7 +44,7 @@ def Terms_and_Conditions():
 def compute_BA(H, AB):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    BA = H/AB
     #########################################
     return BA
     #-----------------
@@ -70,7 +73,7 @@ def compute_BA(H, AB):
 def compute_OBP(H, AB, BB, HBP, SF):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    OBP = (H+BB+HBP)/(AB+BB+HBP+SF)
     #########################################
     return OBP
     #-----------------
@@ -99,7 +102,7 @@ def compute_OBP(H, AB, BB, HBP, SF):
 def compute_B1(H, B2, B3, HR):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    B1 = H - (B2+B3+HR)
     #########################################
     return B1
     #-----------------
@@ -127,7 +130,7 @@ def compute_B1(H, B2, B3, HR):
 def compute_TB(B1, B2, B3, HR):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    TB = B1 + 2*(B2) + 3*(B3) + 4*(HR)
     #########################################
     return TB
     #-----------------
@@ -153,7 +156,7 @@ def compute_TB(B1, B2, B3, HR):
 def compute_SLG(TB, AB):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    SLG = TB/AB
     #########################################
     return SLG
     #-----------------
@@ -182,7 +185,7 @@ def compute_SLG(TB, AB):
 def compute_runs(H, BB, TB, AB):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    RC = ((H+BB)*TB)/(AB+BB)
     #########################################
     return RC
     #-----------------
@@ -208,7 +211,7 @@ def compute_runs(H, BB, TB, AB):
 def compute_wins(RC, RA):
     #########################################
     ## INSERT YOUR CODE HERE (4 points)
-    
+    W = 1/(1+np.square(RA/RC))
     #########################################
     return W
     #-----------------

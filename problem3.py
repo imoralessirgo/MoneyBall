@@ -24,7 +24,7 @@ from problem2 import *
 def load_batting(filename='moneyball_batting.csv'):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    X = load_csv(filename)
     #########################################
     return X
     #-----------------
@@ -50,7 +50,7 @@ def load_batting(filename='moneyball_batting.csv'):
 def filter_batting(X, year):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    X1 = X.loc[X['yearID'] == year]
     #########################################
     return X1
     #-----------------
@@ -93,7 +93,8 @@ def filter_batting(X, year):
 def group_batting(X1):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    X2 = X1.groupby('playerID').sum().reset_index()
+
     #########################################
     return X2
     #-----------------
@@ -121,7 +122,7 @@ def group_batting(X1):
 def merge_player(X2, Y):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    X3 = X2.merge(Y, on = 'playerID')
     #########################################
     return X3
     #-----------------
@@ -148,7 +149,7 @@ def merge_player(X2, Y):
 def filter_salary(Z, year):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    Z1 = Z.loc[Z['yearID'] == year]
     #########################################
     return Z1
     #-----------------
@@ -175,7 +176,7 @@ def filter_salary(Z, year):
 def merge_salary(X3, Z1):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    X4 = X3.merge(Z1, on = 'playerID') 
     #########################################
     return X4
     #-----------------
@@ -202,7 +203,7 @@ def merge_salary(X3, Z1):
 def filter_min_AB(X4, min_AB):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    X5 = X4.loc[X4['AB'] >= min_AB]
     #########################################
     return X5
     #-----------------
@@ -229,7 +230,7 @@ def filter_min_AB(X4, min_AB):
 def filter_max_salary(X5, max_salary):
     #########################################
     ## INSERT YOUR CODE HERE (3 points)
-    
+    X6 = X5.loc[X5['salary'] <= max_salary]
     #########################################
     return X6
     #-----------------
